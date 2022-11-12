@@ -11,10 +11,10 @@
 int main()
 {
 	char s[50], s2[50];
-	printf("\t nhap chuoi:\n:");
+	printf("\n nhap chuoi:");
 	gets(s);
 	chuanhoachuoi(s);
-	printf("\t chuan hoa chuoi \n:");
+	printf("\n chuan hoa chuoi :");
 	gets(s);
 	demsotu(s);
 	demkytu(s);
