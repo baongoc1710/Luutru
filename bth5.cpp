@@ -2,6 +2,7 @@
 #include<conio.h>
 #include<string.h>
 #include<ctype.h>
+#include<stdlib.h>
 	int xoa(char s[50], int vitrixoa);
 	int xoakytu(char s[50]);
 	int chuanhoachuoi(char s[50]);
@@ -15,7 +16,7 @@ int main()
 	gets(s);
 	chuanhoachuoi(s);
 	printf("\n chuan hoa chuoi :");
-	gets(s);
+	puts(s);
 	demsotu(s);
 	demkytu(s);
 	ghepkytu(s,s2);
@@ -69,7 +70,7 @@ int demkytu(char s[50])
 	char c,c1;
 	printf("\n nhap mot ky tu:=");
 	scanf("%c",&c);
-	fflush(stdin);
+		fflush(stdin);
 	strupr(s);
 	for(int i=0;i<strlen(s);i++)
 	{
@@ -80,16 +81,16 @@ int demkytu(char s[50])
 }
 void ghepkytu(char s[50], char s2[50])
 {
-	int i,j,size1,size2,size;
+	int i,j,size,size1,size2;
 	fflush(stdin);
 	printf("\n nhap chuoi s2=");
 	gets(s2);
 	chuanhoachuoi(s2);
 	size1=strlen(s);
-	size2=strlen(s);
-	size=size1=size2;
+	size2=strlen(s2);
+	size=size1+size2;
 	j=0;
-	for (i=size;i<size;i++)
+	for (i=size1;i<size;i++)
 	{
 		s[i]=s2[j];
 			j++;
