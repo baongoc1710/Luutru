@@ -4,7 +4,7 @@ void Output(int a[], int n);
 int Timkiemtuantu(int a[], int n, int x);
 void Sort(int a[], int n);
 int Timkiemnhiphan(int a[], int n, int x);
-int search(int a[], int n, int x);
+
 int main()
 {
 	int n,x,a[50];
@@ -15,12 +15,18 @@ int main()
 	Output(a,n);
 	printf("\nNhap phan tu can tim(tim kiem tuan tu): ");
 	scanf("%d",&x);
-
-	printf("\nKet qua tim kiem: ");
-	if(search(a,n,x)==-1)
-	  printf("\nKhong tim thay x!");
+	//Tim kiem Tuan tu:
+	if(Timkiemtuantu(a,n,x)== -1)
+	  printf("\nKhong tim thay x=%d trong mang!",x);
 	else 
-
+	  printf("\nTim thay phan tu x=%d tai vi tri a[%d](tim kiem tuan tu)",x,Timkiemtuantu(a,n,x));
+	//Tim kiem Nhi phan:
+	Sort(a,n);
+	if(Timkiemnhiphan(a,n,x) == -1)
+	  printf("\nKhong tim thay phan tu x=%d trong mang!",x);
+	else 
+	  printf("\nTim thay phan tu x=%d tai vi tri a[%d](tim kiem nhi phan)",x,Timkiemnhiphan(a,n,x));
+	  
 	return 0;
 }
 void Input(int a[], int n)
@@ -84,26 +90,4 @@ int Timkiemnhiphan(int a[], int n, int x)
 	  }while(left <= right);
 	 return -1;
 }
-int search(int a[], int n, int x)
-{
-	int dem=0;
-	for(int i=0; i<n ; i++)
-	   {
-	   	  if(a[i]==x)
-	   	    {
-	   	    	printf(" a[%d] ",i);
-	   	    	dem++;
-			}
-	   }
-	if(dem==0)
-	  return -1;
-}
-
-
-
-
-
-
-
-
 
