@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Avalon Store Logo" class="logo">
+        </div>
+        <h1>Avalon Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('products')">Sản phẩm</a></li>
+                <li><a href="#" onclick="openCart()" class="cart-button">Giỏ hàng (<span id="cart-count">0</span>)</a></li>
+                <li><a href="#" onclick="openAboutModal()">Giới thiệu</a></li>
+                <li><a href="#" onclick="showPage('contact')">Liên hệ</a></li>
+                <li><a href="#" onclick="openLoginForm()">Đăng nhập</a></li>
+            </ul>
+        </nav>
+        <form class="search-form" onsubmit="return false;">
+            <input type="search" id="searchInput" placeholder="Tìm kiếm..." onkeyup="searchLaptop()">
+            <button type="button" class="search-button" onclick="searchLaptop()">Tìm kiếm</button>
+        </form>
+    </header>
+    
+    <main id="home">
+        <section class="products">
+            <!-- Product cards here -->
+            <div class="product-card">
+                <img src="images/laptop1.ipg.webp" alt="Laptop 1">
+                <h3>Lenovo IdeaPad 15.6" Full HD Touchscreen 2-in-1 Laptop, Intel Core i7</h3>
+                <p>23.090.000 VND</p>
+                <button data-product-id="1" data-product-name="Lenovo IdeaPad 15.6" data-product-price="23090000" data-product-image="images/laptop1.ipg.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop2.webp" alt="Laptop 2">
+                <h3>Laptop Dell Precision 16 5680 i9 13900H/32GB/1TB/8GB RTXA2000/Win11 Pro </h3>
+                <p>101.990.000 VND</p>
+                <button data-product-id="2" data-product-name="Laptop Dell Precision 16" data-product-price="101990000" data-product-image="images/laptop2.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop3.webp" alt="Laptop 3">
+                <h3>Acer Spin 5 SP515-51N Reviews, Pros and Cons, TechSpot</h3>
+                <p>20.989.000 VND</p>
+                <button data-product-id="3" data-product-name="Acer Spin 5 SP515-51N" data-product-price="20989000" data-product-image="images/laptop3.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop4.webp" alt="Laptop 4">
+                <h3>Laptop HP Pavilion 15-cs3015TU,I5-1035G1,4G,SSD 256G,15.6FHD,Win10,Xám</h3>
+                <p>15.590.000 VND</p>
+                <button data-product-id="4" data-product-name="HP Pavilion 15-cs3015TU" data-product-price="15590000" data-product-image="images/laptop4.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop5.webp" alt="Laptop 5">
+                <h3>ASUS TUF Gaming Laptop FX504GE-BS73, 15.6 Full HD, Intel Six-Core i7</h3>
+                <p>26.490.000 VND</p>
+                <button data-product-id="5" data-product-name="ASUS TUF Gaming FX504GE-BS73" data-product-price="26490000" data-product-image="images/laptop5.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop6.webp" alt="Laptop 6">
+                <h3>Laptop Dell Precision 15 3581 i7 13800H/32GB/1TB/6GB RTXA1000/Win11 Pro</h3>
+                <p>58.490.000 VND</p>
+                <button data-product-id="6" data-product-name="Dell Precision 15" data-product-price="58490000" data-product-image="images/laptop6.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop7.webp" alt="Laptop 7">
+                <h3>MSI Katana GF66 review – entry-level gaming will never be the same</h3>
+                <p>26.690.000 VND</p>
+                <button data-product-id="7" data-product-name="MSI Katana GF66" data-product-price="26690000" data-product-image="images/laptop7.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop8.webp" alt="Laptop 8">
+                <h3>Lenovo IdeaPad Gaming 3i Intel Laptop, 15.6" FHD IPS 60Hz 60Hz, i7</h3>
+                <p>20.990.000 VND</p>
+                <button data-product-id="8" data-product-name="Lenovo IdeaPad Gaming 3i" data-product-price="20990000" data-product-image="images/laptop8.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop9.webp" alt="Laptop 9">
+                <h3>Laptop MSI Gaming GF63 Thin 12UCX i5 12450H/16GB/512GB/4GB RTX2050/144Hz/Win11</h3>
+                <p>16.490.000 VND</p>
+                <button data-product-id="9" data-product-name="MSI Gaming GF63 Thin 12UCX" data-product-price="16490000" data-product-image="images/laptop9.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop10.webp" alt="Laptop 10">
+                <h3>Laptop MSI Gaming Bravo 15 B7ED R5 7535HS/16GB/512GB/4GB RX6550M/144Hz/Win11</h3>
+                <p>18.490.000 VND</p>
+                <button data-product-id="10" data-product-name="MSI Gaming Bravo 15 B7ED" data-product-price="18490000" data-product-image="images/laptop10.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop11.webp" alt="Laptop 11">
+                <h3>Laptop HP Gaming VICTUS 15 fb1022AX R5 7535HS/16GB/512GB/4GB RTX2050/144Hz/Win11</h3>
+                <p>20.990.000 VND</p>
+                <button data-product-id="11" data-product-name="HP Gaming VICTUS 15" data-product-price="20990000" data-product-image="images/laptop11.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop12.webp" alt="Laptop 12">
+                <h3>Laptop Lenovo Gaming Legion 5 16IRH8 i5 13500H/16GB/512GB/6GB RTX4050/165Hz/Win11</h3>
+                <p>33.990.000 VND</p>
+                <button data-product-id="12" data-product-name="Lenovo Gaming Legion 5" data-product-price="33990000" data-product-image="images/laptop12.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop13.webp" alt="Laptop 13">
+                <h3>Laptop Dell Inspiron 14 7430 2-in-1 i7 1355U/16GB/512GB/Touch/Pen/OfficeHS/Win11</h3>
+                <p>27.990.000 VND</p>
+                <button data-product-id="13" data-product-name="Dell Inspiron 14" data-product-price="27990000" data-product-image="images/laptop13.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop14.webp" alt="Laptop 14">
+                <h3>Laptop Acer Gaming Predator Helios 16 PH16 71 72BV i7 13700HX/16GB/512GB/8GB RTX4070/240Hz/Win11</h3>
+                <p>55.990.000 VND</p>
+                <button data-product-id="14" data-product-name="Acer Gaming Predator Helios 16" data-product-price="55990000" data-product-image="images/laptop14.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop15.webp" alt="Laptop 15">
+                <h3>Laptop Acer Gaming Nitro 5 Tiger AN515 58 773Y i7 12700H/8GB/512GB/4GB RTX3050Ti/144Hz/Win11</h3>
+                <p>26.490.000 VND</p>
+                <button data-product-id="15" data-product-name="Acer Gaming Nitro 5 Tiger" data-product-price="26490000" data-product-image="images/laptop15.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop16.webp" alt="Laptop 16">
+                <h3>Laptop Apple MacBook Air 13 inch M2 16GB/512GB/10GPU</h3>
+                <p>24.490.000 VND</p>
+                <button data-product-id="16" data-product-name="Apple MacBook Air 13 inch M2" data-product-price="24490000" data-product-image="images/laptop16.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop17.webp" alt="Laptop 17">
+                <h3>Laptop HP Envy 16 h0205TX i9 12900H/32GB/512GB/6GB RTX3060/Touch/Win11</h3>
+                <p>50.090.000 VND</p>
+                <button data-product-id="17" data-product-name="HP Envy 16 h0205TX i9" data-product-price="50090000" data-product-image="images/laptop17.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop18.webp" alt="Laptop 18">
+                <h3>Laptop Apple MacBook Air 13 inch M1 8GB/256GB</h3>
+                <p>18.190.000 VND</p>
+                <button data-product-id="18" data-product-name="Apple MacBook Air 13 inch M1" data-product-price="18190000" data-product-image="images/laptop18.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop19.webp" alt="Laptop 19">
+                <h3>Laptop Apple MacBook Pro 16 inch M3 Max 36GB/1TB</h3>
+                <p>87.990.000 VND</p>
+                <button data-product-id="19" data-product-name="Apple MacBook Pro 16 inch M3 Max" data-product-price="87990000" data-product-image="images/laptop19.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="images/laptop20.webp" alt="Laptop 20">
+                <h3>Laptop Apple MacBook Pro 16 inch M3 Pro 36GB/1TB</h3>
+                <p>79.990.000 VND</h3>
+                <button data-product-id="20" data-product-name="Apple MacBook Pro 16 inch M3 Pro" data-product-price="79990000" data-product-image="images/laptop20.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="products" style="display:none;">
+        <div>
+            <label for="modelFilter">Dòng máy:</label>
+            <select id="modelFilter">
+                <option value="all">Tất cả</option>
+                <option value="gaming">Gaming</option>
+                <option value="business">Doanh nghiệp</option>
+                <option value="ultrabook">Ultrabook</option>
+                <option value="MacBook">MacBook</option>
+            </select>
+            <label for="cpuFilter">CPU:</label>
+            <select id="cpuFilter">
+                <option value="all">Tất cả</option>
+                <option value="R5"> ryzen5</option>
+                <option value="I5"> i5</option>
+                <option value="I7"> i7</option>
+                <option value="I9"> i9</option>
+                <option value="M1">Apple M1</option>
+                <option value="M2">Apple M2</option>
+                <option value="M3">Apple M3</option>
+            </select>
+            <label for="graphicsFilter">Đồ họa:</label>
+            <select id="graphicsFilter">
+                <option value="all">Tất cả</option>
+                <option value="nvidia">NVIDIA</option>
+                <option value="Amd">Amd</option>
+                <option value="intel">Intel</option>
+            </select>
+            <label for="priceFilter">Khoảng giá:</label>
+            <select id="priceFilter">
+                <option value="all">Tất cả</option>
+                <option value="under20M">Dưới 20.000.000 VND</option>
+                <option value="20MTo40M">20.000.000 VND đến 40.000.000 VND</option>
+                <option value="40MTo50M">40.000.000 VND đến 50.000.000 VND</option>
+                <option value="over50M">Trên 50.000.000 VND</option>
+            </select>
+            <button onclick="filterProducts()">Lọc</button>
+        </div>
+        <section id="productList" class="products">
+            <!-- Filtered product cards here -->
+            <div class="product-card" data-cpu="I7" data-graphics="nvidia" data-price="23090000" data-model="Business">
+                <img src="images/laptop1.ipg.webp" alt=" Business Laptop Model 1 ">
+                <h3> Business Laptop ,</h3>
+                <p>Lenovo IdeaPad 15.6" Full HD Touchscreen, i7, NVIDIA GTX 1660Ti, 23.090.000VND</p>
+                <button data-product-id="1" data-product-name="Lenovo IdeaPad 15.6" data-product-price="23090000" data-product-image="images/laptop1.ipg.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I9" data-graphics="nvidia" data-price="101990000" data-model="ultrabook">
+                <img src="images/laptop2.webp" alt="ultrabook Laptop Model">
+                <h3> Ultrabook Laptop </h3>
+                <p>Laptop Dell Precision 16, i9, NVIDIA GTX 13900H/32GB/1TB/8GB, 101.990.000VND</p>
+                <button data-product-id="2" data-product-name="Laptop Dell Precision 16" data-product-price="101990000" data-product-image="images/laptop2.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I5" data-graphics="nvidia" data-price="20989000" data-model="Business">
+                <img src="images/laptop3.webp" alt="Business Laptop Model 3">
+                <h3>Business Laptop </h3>
+                <p>Acer Spin 5 SP515-51N Reviews, Pros and Cons, TechSpot, i5, NVIDIA GTX, 20.989.000 VND</p>
+                <button data-product-id="3" data-product-name="Acer Spin 5 SP515-51N" data-product-price="20989000" data-product-image="images/laptop3.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I5" data-graphics="intel" data-price="15590000" data-model="business">
+                <img src="images/laptop4.webp" alt="business Laptop Model 4">
+                <h3>Business Laptop</h3>
+                <p>Laptop HP Pavilion 15-cs3015TU, i5, Intel Iris Xe, 15.590.000VND</p>
+                <button data-product-id="4" data-product-name="HP Pavilion 15-cs3015TU" data-product-price="15590000" data-product-image="images/laptop4.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I7" data-graphics="intel" data-price="26490000" data-model="gaming">
+                <img src="images/laptop5.webp" alt="Gaming Laptop Model 5">
+                <h3>Gaming Laptop</h3>
+                <p>ASUS TUF Gaming Laptop FX504GE-BS73, 15.6 Full HD,i7,Intel UHD Graphics 630 , 26.490.000VND</p>
+                <button data-product-id="5" data-product-name="ASUS TUF Gaming FX504GE-BS73" data-product-price="26490000" data-product-image="images/laptop5.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <!-- Business Laptop-->
+            
+            <div class="product-card" data-cpu="I7" data-graphics="nvidia" data-price="58490000" data-model="ultrabook">
+                <img src="images/laptop6.webp" alt="Business Laptop Model 6">
+                <h3> Ultrabook Laptop</h3>
+                <p>Laptop Dell Precision ,i7,32GB/1TB/6GB, Card rờiRTX A1000 nvidia, 6GB,58.490.000VND</p>
+                <button data-product-id="6" data-product-name="Dell Precision 15" data-product-price="58490000" data-product-image="images/laptop6.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I7" data-graphics="nvidia" data-price="26690000" data-model="gaming">
+                <img src="images/laptop7.webp" alt="gaming Laptop Model 7">
+                <h3>Gaming Laptop</h3>
+                <p>MSI Katana GF66 review – entry-level gaming will never be the same, i7, Nvidia GeForce RTX 3050 Ti, 26.690.000</p>
+               <button data-product-id="7" data-product-name="MSI Katana GF66" data-product-price="26690000" data-product-image="images/laptop7.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I5" data-graphics="nvidia" data-price="20990000" data-model="gaming">
+                <img src="images/laptop8.webp" alt="Gaming Laptop Model 8">
+                <h3>Gaming Laptop </h3>
+                <p>Lenovo IdeaPad Gaming 3i Intel Laptop, 15.6" FHD IPS 60Hz 60Hz, i5 , GTX 3050Ti, 20.990.000VND</p>
+                <button data-product-id="8" data-product-name="Lenovo IdeaPad Gaming 3i" data-product-price="20990000" data-product-image="images/laptop8.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I5" data-graphics="amd" data-price="16490000" data-model="gaming">
+                <img src="images/laptop9.webp" alt="gaming Laptop Model 9">
+                <h3>Gaming Laptop</h3>
+                <p>Laptop MSI Gaming GF63 Thin 12UCX/144Hz/Win11, i5 , NVIDIA RTX 2050, 16.490.000VND</p>
+                <button data-product-id="9" data-product-name="MSI Gaming GF63 Thin 12UCX" data-product-price="16490000" data-product-image="images/laptop9.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <!-- Ultrabook Laptop-->
+            <div class="product-card" data-cpu="R5" data-graphics="amd" data-price="18490000" data-model="gaming">
+                <img src="images/laptop10.webp" alt="gaming Laptop Model 10">
+                <h3>Gaming Laptop</h3>
+                <p>18.490.000VND</p>
+                <p>Laptop MSI Gaming Bravo 15 B7ED /16GB/512GB/4GB/144Hz/Win11, ryzen5, 7535HS, AMD RX6550M, 18.490.000VND</p>
+                <button data-product-id="10" data-product-name="MSI Gaming Bravo 15 B7ED" data-product-price="18490000" data-product-image="images/laptop10.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="R5" data-graphics="nvidia" data-price="20990000" data-model="gaming">
+                <img src="images/laptop11.webp" alt="gaming Laptop Model 11">
+                <h3>Gaming Laptop</h3>
+                <p>Laptop HP Gaming VICTUS 15 fb1022AX /16GB/512GB/4GB/144Hz/Win11, ryzen 5, 5600H.3GHz, NVIDIA RTX 2050, 20.990.000VND</p>
+                <button data-product-id="11" data-product-name="HP Gaming VICTUS 15" data-product-price="20990000" data-product-image="images/laptop11.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I5" data-graphics="nvidia" data-price="33990000" data-model="gaming">
+                <img src="images/laptop12.webp" alt="gaming Laptop Model 12">
+                <h3> Gaming Laptop</h3>
+                <p>Laptop Lenovo Gaming Legion 5 16IRH8/16GB/512GB/6GB/165Hz/Win11, i5, NVIDIA RTX 4050, 33.990.000VND</p>
+               <button data-product-id="12" data-product-name="Lenovo Gaming Legion 5" data-product-price="33990000" data-product-image="images/laptop12.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I7" data-graphics="intel" data-price="27990000" data-model="business">
+                <img src="images/laptop13.webp" alt="business Laptop Model 13">
+                <h3>Business Laptop </h3>
+                <p>Laptop Dell Inspiron 14 , i7,Intel Iris Xe, 27.990.000VND</p>
+                <button data-product-id="13" data-product-name="Dell Inspiron 14" data-product-price="27990000" data-product-image="images/laptop13.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I7" data-graphics="nvidia" data-price="55990000" data-model="ultrabook">
+                <img src="images/laptop14.webp" alt="Ultrabook Laptop Model 14">
+                <h3> Ultrabook Laptop</h3>
+                <p>55.990.000VND</p>
+                <p>Laptop Acer Predator Helios 16 PH16 71 72BV /16GB/512GB/8GB/240Hz/Win11, i7, NVIDIA RTX 4070, 55.990.000VND</p>
+               <button data-product-id="14" data-product-name="Acer Gaming Predator Helios 16" data-product-price="55990000" data-product-image="images/laptop14.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I7" data-graphics="nvidia" data-price="26490000" data-model="gaming">
+                <img src="images/laptop15.webp" alt="gaming Laptop Model 15">
+                <h3>Gaming Laptop</h3>
+                <p>Laptop Acer Gaming Nitro 5 Tiger AN515 58 773Y /8GB/512GB/4GB /144Hz/Win11, i7, NVIDIA RTX 3050Ti, 26.490.000VND</p>
+                <button data-product-id="15" data-product-name="Acer Gaming Nitro 5 Tiger" data-product-price="26490000" data-product-image="images/laptop15.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="M2"  data-price="24490000" data-model="MacBook" data-model="ultrabook">
+                <img src="images/laptop16.webp" alt="MacBook Model 16">
+                <h3> Ultrabook Laptop</h3>
+                <p> Laptop Apple MacBook Air 13 inch M2 16GB/512GB/10GPU, 24.490.000 VND</p>
+                 <button data-product-id="16" data-product-name="Apple MacBook Air 13 inch M2" data-product-price="24490000" data-product-image="images/laptop16.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="I9" data-graphics="nvidia" data-price="50090000" data-model="ultrabook">
+                <img src="images/laptop17.webp" alt="Business Laptop Model 17">
+                <h3> Ultrabook Laptop</h3>
+                <p>50.090.000VND</p>
+                <p>Laptop HP Envy 16 h0205TX/32GB/512GB/6GB/Touch/Win11, i9, Nvidia RTX3060, 50.090.000VND</p>
+                <button data-product-id="17" data-product-name="HP Envy 16 h0205TX i9" data-product-price="50090000" data-product-image="images/laptop17.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="M1"  data-price="18190000" data-model="MacBook" data-model="ultrabook">
+                <img src="images/laptop18.webp" alt="Ultrabook Laptop Model 18">
+                <h3> Ultrabook Laptop</h3>
+                <p>Laptop Apple MacBook Air 13 inch M1 8GB/256GB, 18.190.000VND</p>
+                 <button data-product-id="18" data-product-name="Apple MacBook Air 13 inch M1" data-product-price="18190000" data-product-image="images/laptop18.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="M3"  data-price="87990000" data-model="MacBook" data-model="ultrabook" >
+                <img src="images/laptop19.webp" alt="Business Laptop Model 19">
+                <h3> Ultrabook Laptop</h3>
+                <p>Laptop Apple MacBook Pro 16 inch M3 Max 36GB/1TB, 87.990.000 VND</p>
+                <button data-product-id="19" data-product-name="Apple MacBook Pro 16 inch M3 Max" data-product-price="87990000" data-product-image="images/laptop19.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+            <div class="product-card" data-cpu="M3" data-price="79990000" data-model="MacBook" data-model="ultrabook">
+                <img src="images/laptop20.webp" alt="MacBook Model 20">
+                <h3> Apple MacBook Ultrabook Laptop</h3>
+                <p>Laptop Apple MacBook Pro 16 inch M3 pro 36GB/1TB, 79.990.000 VND</p>
+                <button data-product-id="20" data-product-name="Apple MacBook Pro 16 inch M3 Pro" data-product-price="79990000" data-product-image="images/laptop20.webp">Đặt hàng</button>
+                <div class="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="contact" style="display:none;">
+        <section class="contact-section">
+            <h2>Liên hệ</h2>
+            <p>Quý khách có thể liên hệ với chúng tôi qua các kênh sau:</p>
+            <ul>
+                <li>Email: vodangkhoavk@gmail.com</li>
+                <li>Điện thoại: 0358-160-349</li>
+                <li>Địa chỉ: Đường Dương Quang Đông, Phường 5, TP. Trà Vinh</li>
+            </ul>
+            <form class="contact-form" onsubmit="submitContactForm(event)">
+                <label for="contactName">Họ tên:</label>
+                <input type="text" id="contactName" name="contactName" required>
+                <label for="contactEmail">Email:</label>
+                <input type="email" id="contactEmail" name="contactEmail" required>
+                <label for="contactMessage">Tin nhắn:</label>
+                <textarea id="contactMessage" name="contactMessage" required></textarea>
+                <button type="submit">Gửi</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Avalon Store. All rights reserved.</p>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginForm()">&times;</span>
+            <form action="/submit-login" method="post">
+                <h2>Đăng nhập</h2>
+                <label for="username">Họ tên:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="search-button">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Giỏ hàng</h2>
+            <div id="cart-items"></div>
+            <div class="total-price" id="total-price">Tổng tiền: 0 VND</div>
+            <button class="checkout-button" onclick="checkout()">Thanh toán</button>
+        </div>
+    </div>
+    
+    <div id="aboutModal" class="modal">
+        <div class="modal-content about-modal-content">
+            <span class="close" onclick="closeAboutModal()">&times;</span>
+            <img src="images/logo.png" alt="Avalon Store Logo" class="logo">
+            <h2>Về Avalon Shop</h2>
+            <p>Avalon Shop là điểm đến lý tưởng cho những ai đang tìm kiếm các thiết bị laptop và phụ kiện hàng đầu tại Việt Nam. Với một loạt các sản phẩm chính hãng từ các thương hiệu nổi tiếng như HP, Lenovo, MacBook và nhiều hơn nữa, chúng tôi tự hào mang đến cho khách hàng những giải pháp công nghệ tiên tiến nhất.</p>
+            <p>Chúng tôi cam kết mang đến trải nghiệm mua sắm tuyệt vời với chất lượng sản phẩm cao nhất và dịch vụ chăm sóc khách hàng tận tâm. Đội ngũ nhân viên chuyên nghiệp của chúng tôi luôn sẵn sàng hỗ trợ bạn trong việc lựa chọn sản phẩm phù hợp nhất với nhu cầu của mình.</p>
+            <p>Tại Avalon Shop, chúng tôi không chỉ tập trung vào việc bán hàng, mà còn chú trọng đến dịch vụ hậu mãi như bảo hành, sửa chữa và tư vấn sử dụng sản phẩm. Hãy đến với chúng tôi để trải nghiệm sự khác biệt và tìm thấy những sản phẩm công nghệ tốt nhất!</p>
+            <h3>Sứ mệnh của chúng tôi</h3>
+            <p>Sứ mệnh của Avalon Shop là cung cấp cho khách hàng những sản phẩm công nghệ tiên tiến và dịch vụ hỗ trợ tận tâm, giúp họ tối ưu hóa hiệu suất làm việc và giải trí. Chúng tôi luôn nỗ lực để trở thành đối tác tin cậy và nguồn cảm hứng cho sự sáng tạo và đổi mới.</p>
+            <h3>Tầm nhìn của chúng tôi</h3>
+            <p>Tầm nhìn của chúng tôi là trở thành nhà bán lẻ thiết bị công nghệ hàng đầu tại Việt Nam, nơi khách hàng có thể tìm thấy mọi thứ họ cần để nâng cao chất lượng cuộc sống và công việc. Chúng tôi tin rằng công nghệ là chìa khóa để mở ra những cơ hội mới và chúng tôi muốn là người đồng hành cùng khách hàng trên hành trình khám phá những tiềm năng đó.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var addToCartButtons = document.querySelectorAll('button[data-product-id]');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation();  // Ngăn không cho mở chi tiết sản phẩm
+                    const name = this.getAttribute('data-product-name');
+                    const price = parseFloat(this.getAttribute('data-product-price'));
+                    const image = this.getAttribute('data-product-image');
+                    addToCart(name, price, image);
+                });
+            });
+
+            var stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    var rating = this.getAttribute('data-value');
+                    var allStars = this.parentNode.querySelectorAll('.star');
+                    allStars.forEach(s => {
+                        s.style.color = s.getAttribute('data-value') <= rating ? 'gold' : 'gray';
+                    });
+                });
+            });
+        });
+
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('main');
+            pages.forEach(function(page) {
+                page.style.display = page.id === pageId ? 'block' : 'none';
+            });
+        }
+
+        function searchLaptop() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                var title = card.querySelector('h3').textContent.toUpperCase();
+                card.style.display = title.includes(input) ? '' : 'none';
+            });
+        }
+
+        function filterProducts() {
+            var cpu = document.getElementById('cpuFilter').value;
+            var graphics = document.getElementById('graphicsFilter').value;
+            var price = document.getElementById('priceFilter').value;
+            var model = document.getElementById('modelFilter').value;
+
+            var products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                var productCpu = product.getAttribute('data-cpu');
+                var productGraphics = product.getAttribute('data-graphics');
+                var productPrice = parseFloat(product.getAttribute('data-price'));
+                var productModel = product.getAttribute('data-model');
+
+                var cpuMatch = cpu === 'all' || cpu === productCpu;
+                var graphicsMatch = graphics === 'all' || graphics === productGraphics;
+                var priceMatch = price === 'all' || (price === 'under20M' && productPrice < 20000000) ||
+                    (price === '20MTo40M' && productPrice >= 20000000 && productPrice <= 40000000) ||
+                    (price === '40MTo50M' && productPrice > 40000000 && productPrice <= 50000000) ||
+                    (price === 'over50M' && productPrice > 50000000);
+                var modelMatch = model === 'all' || model === productModel;
+
+                product.style.display = cpuMatch && graphicsMatch && priceMatch && modelMatch ? '' : 'none';
+            });
+        }
+
+        function openLoginForm() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function closeLoginForm() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function openAboutModal() {
+            document.getElementById('aboutModal').style.display = 'block';
+        }
+
+        function closeAboutModal() {
+            document.getElementById('aboutModal').style.display = 'none';
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            alert('Cảm ơn bạn đã liên hệ với chúng tôi!');
+        }
+
+        let cart = [];
+        let currentProduct = null;
+
+        function addToCart(name, price, image) {
+            const existingProductIndex = cart.findIndex(item => item.name === name);
+            if (existingProductIndex > -1) {
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+            updateCartCount();
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        }
+
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            updateTotalPrice();
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'block';
+            displayCartItems();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <span>${item.name} - ${item.price.toLocaleString()} VND</span>
+                    <div>
+                        <button onclick="updateQuantity(${index}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity(${index}, 1)">+</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+            updateTotalPrice();
+        }
+
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            displayCartItems();
+            updateCartCount();
+        }
+
+        function updateTotalPrice() {
+            const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            document.getElementById('total-price').textContent = `Tổng tiền: ${totalPrice.toLocaleString()} VND`;
+        }
+
+        function checkout() {
+            alert('Thanh toán thành công!');
+            cart = [];
+            updateCartCount();
+            closeCart();
+        }
+
+        function showProductDetail(name, image, description, price) {
+            currentProduct = { name, price };
+            document.getElementById('productDetailTitle').textContent = name;
+            document.getElementById('productDetailImage').src = image;
+            document.getElementById('productDetailDescription').textContent = description;
+            document.getElementById('productDetailPrice').textContent = `${parseInt(price).toLocaleString()} VND`;
+            document.getElementById('productDetailModal').style.display = 'block';
+            loadReviews(name);
+        }
+
+        function closeProductDetail() {
+            document.getElementById('productDetailModal').style.display = 'none';
+        }
+
+        function addToCartFromDetail() {
+            if (currentProduct) {
+                addToCart(currentProduct.name, currentProduct.price);
+                closeProductDetail();
+            }
+        }
+
+    </script>
+</body>
+</html>
